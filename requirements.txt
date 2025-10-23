@@ -1,0 +1,38 @@
+# Faster-Whisper core dependencies
+ctranslate2>=4.0,<5
+huggingface_hub>=0.13
+tokenizers>=0.13,<1
+onnxruntime>=1.14,<2
+av>=11
+tqdm
+
+# Audio processing dependencies
+pyaudio>=0.2.11
+
+# GUI automation and keyboard control
+pyautogui>=0.9.54
+keyboard>=0.13.5
+pyperclip>=1.8.2
+
+# Modern UI indicators (CustomTkinter pour les overlays modernes)
+customtkinter>=5.2.0
+
+# System tray icon
+pystray>=0.19.0
+Pillow>=10.0.0
+
+# Windows notifications (modern toast notifications)
+win11toast>=1.0.0
+
+# Windows startup management (optional, Windows only)
+pywin32>=306; sys_platform == 'win32'
+
+# Additional useful packages for audio processing
+numpy>=1.21.0
+scipy>=1.7.0
+
+# For better error handling and logging
+coloredlogs>=15.0
+
+# Colors pour le terminal (ajouté pour test_models.py)
+colorama>=0.4.6
