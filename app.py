@@ -1,36 +1,20 @@
 import os
-import sys
-import json
+import tempfile
 import time
 import wave
 import threading
 import queue
-from datetime import datetime
-from pathlib import Path
-import pyaudio
-import keyboard
-from faster_whisper import WhisperModel
-from colorama import init, Fore, Style
 
-# Initialiser colorama pour les couleurs dans le terminal
-init()
-
-# CORRECTION: Désactiver les symlinks pour éviter l'erreur de privilèges Windows
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
-os.environ["HF_HUB_DISABLE_SYMLINKS"] = "1"
-
-import tempfile
-import threading
-import wave
 import pyaudio
 import keyboard
 import pyautogui
-import tkinter as tk
-from tkinter import ttk, Canvas
-import customtkinter as ctk
-import time
 import pyperclip
+import customtkinter as ctk
 from faster_whisper import WhisperModel
+
+# Désactiver les symlinks pour éviter l'erreur de privilèges Windows
+os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
+os.environ["HF_HUB_DISABLE_SYMLINKS"] = "1"
 
 class VoiceTranscriptionApp:
     def __init__(self):
@@ -57,8 +41,7 @@ class VoiceTranscriptionApp:
         self.last_toggle_time = 0
         self.debounce_delay = 0.3  # 300ms de délai minimum entre deux appuis
         
-        # Initiali
-        # sation PyAudio
+        # Initialisation PyAudio
         self.audio = pyaudio.PyAudio()
         
         # Trouver le microphone spécifique
